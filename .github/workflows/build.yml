@@ -24,6 +24,8 @@ jobs:
       - run: npm install
         working-directory: apk
       - run: |
+          mkdir -p www
+          cp ../exe/index.html www/index.html
           npx cap add android
           sed -i 's/<activity/<activity android:screenOrientation="sensorLandscape"/' android/app/src/main/AndroidManifest.xml
           npx cap sync android
